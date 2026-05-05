@@ -46,31 +46,15 @@ export default function Hero() {
         >
           You&apos;re Invited
         </p>
-        <div
+        <img
+          src="/logo/SVG/big-logo.svg"
+          alt="Bandon Dunes Golf Partners"
           style={{
-            fontFamily: 'var(--font-cormorant), serif',
-            fontStyle: 'italic',
-            fontWeight: 300,
-            fontSize: 'clamp(3rem, 8vw, 6rem)',
-            lineHeight: 1,
-            color: '#fff',
-            marginBottom: '0.5rem',
-          }}
-        >
-          Bandon Dunes
-        </div>
-        <p
-          style={{
-            fontWeight: 500,
-            fontSize: 'clamp(0.65rem, 1.5vw, 0.8rem)',
-            letterSpacing: '0.4em',
-            textTransform: 'uppercase',
-            color: '#D4AF5A',
+            width: 'clamp(280px, 55vw, 720px)',
+            height: 'auto',
             marginBottom: '2rem',
           }}
-        >
-          Golf Partners
-        </p>
+        />
         <div
           style={{
             display: 'flex',

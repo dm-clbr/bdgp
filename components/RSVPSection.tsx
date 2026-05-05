@@ -3,6 +3,15 @@
 import { useState, useEffect } from 'react'
 
 const TOTAL_SPOTS = 8
+
+function initials(name: string): string {
+  return name
+    .trim()
+    .split(/\s+/)
+    .slice(0, 2)
+    .map((n) => n[0].toUpperCase())
+    .join('')
+}
 const SHIRT_SIZES = ['XS', 'S', 'M', 'L', 'XL', 'XXL']
 const SHOE_SIZES = ['7', '7.5', '8', '8.5', '9', '9.5', '10', '10.5', '11', '11.5', '12', '12.5', '13', '14']
 
@@ -12,6 +21,7 @@ interface SpotData {
   confirmed: number
   total: number
   remaining: number
+  names: string[]
 }
 
 const inputStyle: React.CSSProperties = {
@@ -38,7 +48,7 @@ const selectStyle: React.CSSProperties = {
 }
 
 export default function RSVPSection() {
-  const [spots, setSpots] = useState<SpotData>({ confirmed: 2, total: TOTAL_SPOTS, remaining: 6 })
+  const [spots, setSpots] = useState<SpotData>({ confirmed: 0, total: TOTAL_SPOTS, remaining: TOTAL_SPOTS, names: [] })
   const [formState, setFormState] = useState<FormState>('form')
   const [bookingCode, setBookingCode] = useState('')
   const [loading, setLoading] = useState(false)
@@ -151,7 +161,7 @@ export default function RSVPSection() {
                   : { border: '1px dashed rgba(184,151,58,0.4)', background: 'transparent' }),
               }}
             >
-              {i === 0 ? 'JH' : i === 1 ? 'DM' : i < spots.confirmed ? '✓' : ''}
+              {i < spots.confirmed ? initials(spots.names[i] ?? '•') : ''}
             </div>
           ))}
         </div>
@@ -312,9 +322,6 @@ export default function RSVPSection() {
           </div>
         )}
 
-        <p style={{ fontSize: 11, color: 'rgba(247,243,236,0.3)', letterSpacing: '0.1em', textTransform: 'uppercase', marginTop: '1.5rem' }}>
-          Jeremy Hammond &amp; Donny McGinnis already reserved
-        </p>
       </div>
     </div>
   )

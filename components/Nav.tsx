@@ -14,17 +14,11 @@ export default function Nav() {
         background: 'linear-gradient(to bottom, rgba(26,26,20,0.95), transparent)',
       }}
     >
-      <div
-        style={{
-          fontWeight: 500,
-          fontSize: 13,
-          letterSpacing: '0.25em',
-          color: '#D4AF5A',
-          textTransform: 'uppercase',
-        }}
-      >
-        BDGP
-      </div>
+      <img
+        src="/logo/SVG/ball-logo-white.svg"
+        alt="BDGP"
+        style={{ height: 28, width: 'auto' }}
+      />
       <div
         style={{
           fontSize: 12,

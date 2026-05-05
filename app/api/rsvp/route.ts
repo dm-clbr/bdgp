@@ -14,21 +14,23 @@ function generateBookingCode(): string {
 
 export async function GET() {
   try {
-    const { count, error } = await supabaseAdmin
+    const { data, error } = await supabaseAdmin
       .from('rsvps')
-      .select('*', { count: 'exact', head: true })
+      .select('name')
       .eq('status', 'confirmed')
+      .order('confirmed_at', { ascending: true })
 
     if (error) throw error
 
-    const confirmed = count ?? 2
+    const confirmed = data?.length ?? 0
     return NextResponse.json({
       confirmed,
       total: TOTAL_SPOTS,
       remaining: Math.max(0, TOTAL_SPOTS - confirmed),
+      names: (data ?? []).map((r) => r.name as string),
     })
   } catch {
-    return NextResponse.json({ confirmed: 2, total: TOTAL_SPOTS, remaining: 6 })
+    return NextResponse.json({ confirmed: 0, total: TOTAL_SPOTS, remaining: TOTAL_SPOTS, names: [] })
   }
 }
 

@@ -1,0 +1,37 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build
+.next/
+out/
+build/
+
+# Environment — NEVER commit
+.env
+.env.local
+.env.*.local
+
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS
+.DS_Store
+*.pem
+Thumbs.db
+
+# Vercel
+.vercel
+
+# Original source files (contain embedded secrets from prior version)
+bdgp/
+bdgp.zip
+AGENTS.md
+CLAUDE.md
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts

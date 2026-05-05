@@ -23,7 +23,7 @@ export default function AdminPage() {
       const res = await fetch('/api/admin/rsvps')
       if (res.status === 401) { setAuthed(false); return }
       const data = await res.json()
-      setRsvps(data)
+      setRsvps(Array.isArray(data) ? data : [])
     } finally {
       setLoading(false)
     }

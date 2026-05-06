@@ -11,6 +11,18 @@ export const supabaseAdmin = createClient(supabaseUrl, supabaseServiceKey)
 
 export type RSVPStatus = 'pending' | 'confirmed' | 'waitlisted'
 
+export interface ScheduleRound {
+  course: string
+  time: string
+  players: string
+}
+
+export interface ScheduleDay {
+  date: string
+  day: string
+  rounds: ScheduleRound[]
+}
+
 export interface RSVP {
   id: string
   name: string

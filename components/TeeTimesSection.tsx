@@ -1,4 +1,7 @@
-const schedule = [
+import { supabaseAdmin } from '@/lib/supabase'
+import type { ScheduleDay } from '@/lib/supabase'
+
+const fallbackSchedule: ScheduleDay[] = [
   {
     date: 'September 14',
     day: 'Monday',
@@ -27,7 +30,23 @@ const schedule = [
   },
 ]
 
-export default function TeeTimesSection() {
+async function getSchedule(): Promise<ScheduleDay[]> {
+  try {
+    const { data, error } = await supabaseAdmin
+      .from('schedule_data')
+      .select('schedule')
+      .eq('id', 'main')
+      .single()
+    if (error || !data) return fallbackSchedule
+    return (data.schedule as ScheduleDay[]) ?? fallbackSchedule
+  } catch {
+    return fallbackSchedule
+  }
+}
+
+export default async function TeeTimesSection() {
+  const schedule = await getSchedule()
+
   return (
     <div style={{ padding: '5rem 2rem' }}>
       <div style={{ maxWidth: 900, margin: '0 auto' }}>

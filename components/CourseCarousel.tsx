@@ -76,7 +76,7 @@ function Dot() {
 }
 
 export default function CourseCarousel() {
-  const items = [...courses, ...courses] // duplicate for seamless loop
+  const items = [...courses, ...courses, ...courses, ...courses]
 
   return (
     <div

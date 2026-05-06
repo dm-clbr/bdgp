@@ -19,6 +19,10 @@ const highlights = [
     title: 'BDGP Gear Kit',
     desc: 'Custom branded polo, hoodie, t-shirt, golf balls, and shoes — yours to keep',
   },
+  {
+    title: 'In-House Massage',
+    desc: 'A private massage therapist comes to the manor one evening — unwind after a full day on the links',
+  },
 ]
 
 

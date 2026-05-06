@@ -21,13 +21,6 @@ const highlights = [
   },
 ]
 
-const gearItems = [
-  { label: 'BDGP Polo Shirt', note: 'Size collected at RSVP' },
-  { label: 'BDGP Hoodie', note: 'Size collected at RSVP' },
-  { label: 'BDGP T-Shirt', note: 'Size collected at RSVP' },
-  { label: 'BDGP Golf Balls', note: 'Personalized set' },
-  { label: 'BDGP Shoes', note: 'Size collected at RSVP' },
-]
 
 export default function HighlightsSection() {
   return (
@@ -102,42 +95,15 @@ export default function HighlightsSection() {
         <p style={{ color: 'rgba(247,243,236,0.72)', fontSize: 15, lineHeight: 1.8, marginBottom: '2.5rem' }}>
           Every guest receives a full set of BDGP branded gear, custom-sized to you.
         </p>
-        <div
+        <img
+          src="/BDGP CLOTHING BASKET.png"
+          alt="BDGP gear kit — polo, hoodie, t-shirt, golf balls, and shoes"
           style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
-            gap: '1rem',
+            width: '100%',
+            borderRadius: 4,
+            display: 'block',
           }}
-        >
-          {gearItems.map((item) => (
-            <div
-              key={item.label}
-              style={{
-                border: '1px solid rgba(184,151,58,0.25)',
-                padding: '1.5rem 1.25rem',
-                background: 'rgba(255,255,255,0.02)',
-                borderRadius: 2,
-                textAlign: 'center',
-              }}
-            >
-              <div
-                style={{
-                  fontSize: 13,
-                  fontWeight: 500,
-                  letterSpacing: '0.1em',
-                  textTransform: 'uppercase',
-                  color: '#D4AF5A',
-                  marginBottom: '0.4rem',
-                }}
-              >
-                {item.label}
-              </div>
-              <div style={{ fontSize: 12, color: 'rgba(247,243,236,0.4)', letterSpacing: '0.05em' }}>
-                {item.note}
-              </div>
-            </div>
-          ))}
-        </div>
+        />
       </section>
     </>
   )
